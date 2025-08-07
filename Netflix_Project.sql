@@ -1,4 +1,5 @@
 -- Netflix Data Analysis using SQL
+
 -- 1. Count the number of Movies vs TV Shows
 
 SELECT 
@@ -31,13 +32,11 @@ SELECT
 FROM RankedRatings
 WHERE rank = 1;
 
-
 -- 3. List all movies released in a specific year (e.g., 2020)
 
 SELECT * 
 FROM netflix
 WHERE release_year = 2020
-
 
 -- 4. Find the top 5 countries with the most content on Netflix
 
@@ -55,7 +54,6 @@ WHERE country IS NOT NULL
 ORDER BY total_content DESC
 LIMIT 5
 
-
 -- 5. Identify the longest movie
 
 SELECT 
@@ -64,13 +62,11 @@ FROM netflix
 WHERE type = 'Movie'
 ORDER BY SPLIT_PART(duration, ' ', 1)::INT DESC
 
-
 -- 6. Find content added in the last 5 years
 SELECT
 *
 FROM netflix
 WHERE TO_DATE(date_added, 'Month DD, YYYY') >= CURRENT_DATE - INTERVAL '5 years'
-
 
 -- 7. Find all the movies/TV shows by director 'Rajiv Chilaka'!
 
@@ -86,8 +82,6 @@ netflix
 )
 WHERE 
 	director_name = 'Rajiv Chilaka'
-
-
 
 -- 8. List all TV shows with more than 5 seasons
 
